@@ -63,7 +63,6 @@ async def chat(request: ChatRequest):
     try:
         session_id = request.session_id or str(uuid.uuid4())
         
-        # INPUT GUARDRAILS: Validate user input
         input_check = input_guardrails.validate_input(request.message)
         if not input_check.passed:
             logger.warning(f"Input guardrail failed: {input_check.reason}")
@@ -124,7 +123,6 @@ async def chat(request: ChatRequest):
         
         response_text = response_text or "I apologize, but I couldn't generate a response. Please try rephrasing your question."
         
-        # OUTPUT GUARDRAILS: Validate and sanitize response
         output_check = output_guardrails.validate_output(response_text)
         
         if output_check.blocked:
