@@ -132,7 +132,7 @@ Langfuse integration is optional. If credentials are not provided, the system wi
 
 The platform uses a LangGraph-based multi-agent architecture with a supervisor pattern:
 
-![LangGraph Architecture](langgraph_architecture.png)
+![Architecture](stock_platform_architecture.png)
 
 **Graph Flow:**
 - **START** → Routes to **Supervisor**
