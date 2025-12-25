@@ -1,7 +1,7 @@
 """Trading tools for stock and options trading."""
 
 from langchain_core.tools import tool
-from typing import Optional
+from guardrails.tool_guardrails import tool_guardrails
 
 
 @tool
@@ -17,6 +17,12 @@ def buy_stock(symbol: str, quantity: int, order_type: str = "market") -> str:
     Returns:
         Confirmation message with order details
     """
+    # Guardrail validation
+    args = {'symbol': symbol, 'quantity': quantity, 'order_type': order_type}
+    validation = tool_guardrails.validate_trading_tool('buy_stock', args)
+    if not validation.passed:
+        return f"Error: {validation.reason}"
+    
     # Simple implementation - in production, this would connect to a trading API
     return f"Order placed: Buy {quantity} shares of {symbol} ({order_type} order)"
 
@@ -34,6 +40,12 @@ def sell_stock(symbol: str, quantity: int, order_type: str = "market") -> str:
     Returns:
         Confirmation message with order details
     """
+    # Guardrail validation
+    args = {'symbol': symbol, 'quantity': quantity, 'order_type': order_type}
+    validation = tool_guardrails.validate_trading_tool('sell_stock', args)
+    if not validation.passed:
+        return f"Error: {validation.reason}"
+    
     # Simple implementation - in production, this would connect to a trading API
     return f"Order placed: Sell {quantity} shares of {symbol} ({order_type} order)"
 
@@ -52,6 +64,12 @@ def buy_options(symbol: str, option_type: str, quantity: int, order_type: str = 
     Returns:
         Confirmation message with order details
     """
+    # Guardrail validation
+    args = {'symbol': symbol, 'option_type': option_type, 'quantity': quantity, 'order_type': order_type}
+    validation = tool_guardrails.validate_trading_tool('buy_options', args)
+    if not validation.passed:
+        return f"Error: {validation.reason}"
+    
     # Simple implementation - in production, this would connect to a trading API
     return f"Order placed: Buy {quantity} {option_type} option contracts of {symbol} ({order_type} order)"
 
@@ -70,6 +88,12 @@ def sell_options(symbol: str, option_type: str, quantity: int, order_type: str =
     Returns:
         Confirmation message with order details
     """
+    # Guardrail validation
+    args = {'symbol': symbol, 'option_type': option_type, 'quantity': quantity, 'order_type': order_type}
+    validation = tool_guardrails.validate_trading_tool('sell_options', args)
+    if not validation.passed:
+        return f"Error: {validation.reason}"
+    
     # Simple implementation - in production, this would connect to a trading API
     return f"Order placed: Sell {quantity} {option_type} option contracts of {symbol} ({order_type} order)"
 

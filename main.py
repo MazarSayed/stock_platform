@@ -16,6 +16,8 @@ sys.path.insert(0, str(project_root))
 # Import logger and models (after path setup)
 from utils.utils import logger
 from models.models import ChatMessage, ChatRequest, ChatResponse
+from guardrails.input_guardrails import input_guardrails
+from guardrails.output_guardrails import output_guardrails
 
 load_dotenv()
 
@@ -61,6 +63,20 @@ async def chat(request: ChatRequest):
     try:
         session_id = request.session_id or str(uuid.uuid4())
         
+        # INPUT GUARDRAILS: Validate user input
+        input_check = input_guardrails.validate_input(request.message)
+        if not input_check.passed:
+            logger.warning(f"Input guardrail failed: {input_check.reason}")
+            return ChatResponse(
+                response=f"I'm sorry, but I can only help with questions related to the stock trading platform. {input_check.reason}",
+                session_id=session_id,
+                agent="guardrail",
+                messages=[]
+            )
+        
+        # Use sanitized input if available
+        user_message = input_check.sanitized_output or request.message
+        
         if session_id not in sessions:
             sessions[session_id] = {
                 "messages": [],
@@ -75,17 +91,17 @@ async def chat(request: ChatRequest):
             handler = CallbackHandler(session_id=session_id)
             config["callbacks"] = [handler]
         except Exception:
-            pass
+            pass  # Langfuse is optional
         
         # Get existing messages or start fresh
-        current_messages = [HumanMessage(content=request.message)]
+        current_messages = [HumanMessage(content=user_message)]
         try:
             existing_state = await research_graph.aget_state(config)
             if existing_state and existing_state.values:
                 existing_messages = existing_state.values.get("messages", [])
-                current_messages = existing_messages + [HumanMessage(content=request.message)]
+                current_messages = existing_messages + [HumanMessage(content=user_message)]
         except Exception:
-            pass
+            pass  # Start fresh if state retrieval fails
         
         # Invoke graph
         initial_state = {
@@ -106,8 +122,17 @@ async def chat(request: ChatRequest):
             if hasattr(last_msg, "name") and last_msg.name:
                 agent_used = last_msg.name
         
-        if not response_text:
-            response_text = "I apologize, but I couldn't generate a response. Please try rephrasing your question."
+        response_text = response_text or "I apologize, but I couldn't generate a response. Please try rephrasing your question."
+        
+        # OUTPUT GUARDRAILS: Validate and sanitize response
+        output_check = output_guardrails.validate_output(response_text)
+        
+        if output_check.blocked:
+            logger.warning(f"Response blocked: {output_check.reason}")
+            response_text = "I apologize, but I cannot provide that information. Please ask about stock trading platform features, account management, or trading operations."
+        elif output_check.sanitized_output:
+            response_text = output_check.sanitized_output
+            logger.info("Response sanitized before returning to user")
         
         # Update session messages
         session["messages"].append(ChatMessage(role="user", content=request.message))
@@ -123,25 +148,6 @@ async def chat(request: ChatRequest):
     except Exception as e:
         logger.error(f"Error processing chat: {e}")
         raise HTTPException(status_code=500, detail=f"Error processing chat: {str(e)}")
-
-
-@app.get("/chat/{session_id}", response_model=List[ChatMessage])
-async def get_chat_history(session_id: str):
-    """
-    Get chat history for a session.
-    
-    Args:
-        session_id: Session identifier
-    
-    Returns:
-        List of chat messages
-    """
-    if session_id not in sessions:
-        raise HTTPException(status_code=404, detail="Session not found")
-    
-    return sessions[session_id]["messages"]
-
-
 
 
 if __name__ == "__main__":

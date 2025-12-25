@@ -3,6 +3,12 @@
 from typing import List, Optional, Dict
 from pydantic import BaseModel, Field
 
+class GuardrailResult(BaseModel):
+    """Result of a guardrail check."""
+    passed: bool
+    reason: Optional[str] = None
+    sanitized_output: Optional[str] = None
+    blocked: bool = False  # Whether to completely block the output
 
 # Evaluation Models
 class EvaluationMetrics(BaseModel):

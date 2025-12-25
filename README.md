@@ -9,6 +9,7 @@ A LangGraph-based AI assistant for stock trading platforms with RAG capabilities
 - **FastAPI Backend**: RESTful API for chat interactions
 - **Streamlit Frontend**: Web interface for testing and interaction
 - **Langfuse Observability**: Automatic tracing and monitoring of all agent interactions
+- **Security Guardrails**: Multi-layer protection against prompt injection, sensitive data exposure, and invalid operations
 
 ## Setup
 
@@ -17,14 +18,18 @@ A LangGraph-based AI assistant for stock trading platforms with RAG capabilities
 pip install -r requirements.txt
 ```
 
-2. Set up environment variables (create `.env` file):
-```
-OPENAI_API_KEY=your_key
-TAVILY_API_KEY=your_key
-LANGFUSE_PUBLIC_KEY=your_key
-LANGFUSE_SECRET_KEY=your_key
-LANGFUSE_BASE_URL = "https://us.cloud.langfuse.com"
-```
+2. Set up environment variables:
+   ```bash
+   cp .env.example .env
+   ```
+   Then edit `.env` and fill in your actual API keys:
+   ```
+   OPENAI_API_KEY=your_openai_api_key
+   TAVILY_API_KEY=your_tavily_api_key
+   LANGFUSE_PUBLIC_KEY=your_langfuse_public_key  # Optional
+   LANGFUSE_SECRET_KEY=your_langfuse_secret_key  # Optional
+   LANGFUSE_HOST=https://cloud.langfuse.com  # Optional
+   ```
 
 3. Build the vectorstore:
 ```bash
@@ -123,6 +128,61 @@ The platform integrates with [Langfuse](https://langfuse.com) for observability,
 
 Langfuse integration is optional. If credentials are not provided, the system will continue to work without observability features.
 
+## Architecture
+
+The platform uses a LangGraph-based multi-agent architecture with a supervisor pattern:
+
+![LangGraph Architecture](langgraph_architecture.png)
+
+**Graph Flow:**
+- **START** → Routes to **Supervisor**
+- **Supervisor** → Conditionally routes to one of three agents:
+  - `faq_agent` - Handles platform questions using RAG
+  - `task_agent` - Executes trading operations
+  - `market_insights_agent` - Provides market analysis with RAG + web search
+- **Agents** → Return to **Supervisor**
+- **Supervisor** → Routes to **END** when complete
+
+The supervisor uses LLM-based routing to determine which agent should handle each query based on user intent.
+
+## Security Guardrails
+
+The platform includes comprehensive security guardrails to protect against malicious inputs, sensitive data exposure, and invalid trading operations.
+
+### Input Guardrails
+
+Validates and sanitizes all user inputs before processing:
+
+- **Prompt Injection Detection**: Blocks common injection patterns like "ignore previous instructions", system delimiters, and role-playing attempts
+- **Off-Topic Filtering**: Prevents queries unrelated to stock trading (hacking, malware, illegal activities)
+- **Input Sanitization**: Automatically removes suspicious patterns and injection delimiters
+
+### Output Guardrails
+
+Validates and sanitizes all agent responses before returning to users:
+
+- **Sensitive Data Detection**: Identifies and redacts API keys, tokens, credit cards, SSNs, and passwords
+- **Domain Boundary Enforcement**: Blocks responses containing off-topic content or harmful code patterns
+- **Automatic Sanitization**: Redacts sensitive patterns with `[REDACTED-*]` placeholders while preserving response structure
+
+### Tool Guardrails
+
+Validates all trading tool invocations:
+
+- **Symbol Validation**: Ensures stock symbols are properly formatted (1-5 alphanumeric characters)
+- **Quantity Limits**: Enforces minimum (1) and maximum (10,000) shares/contracts per order
+- **Order Type Validation**: Only allows "market" or "limit" order types
+- **Session Limits**: Tracks and limits orders per session (max 10 orders per session)
+
+### Implementation
+
+Guardrails are automatically applied at multiple layers:
+- **Input validation** happens in the API endpoint before processing
+- **Tool validation** happens within each trading tool before execution
+- **Output validation** happens before responses are returned to users
+
+All guardrail actions are logged for monitoring and analysis.
+
 ## Project Structure
 
 - `main.py` - FastAPI backend server
@@ -131,6 +191,7 @@ Langfuse integration is optional. If credentials are not provided, the system wi
 - `nodes/` - Agent node implementations
 - `rag/` - RAG components (retriever, embedder, vectorstore)
 - `tools/` - Agent tools (FAQ, market analysis, trading)
+- `guardrails/` - Security guardrails (input, output, tool validation)
 - `evaluation/` - Evaluation system (auto evaluator, metrics tracker)
 - `data/` - Documents, vectorstore, and evaluation ground truth
 - `scripts/` - Utility scripts for setup and evaluation
