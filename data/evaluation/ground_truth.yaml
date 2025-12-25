@@ -1,0 +1,787 @@
+test_cases:
+- id: gt_001
+  question: How to withdraw money?
+  expected_answer: 'To withdraw money from your account on our platform, you typically
+    need to follow these steps:
+
+
+    1. **Log into your account**: Make sure you are logged into your trading platform
+    account.
+
+
+    2. **Navigate to the Withdrawal Section**: Find and click on the "Withdrawal"
+    or "Funds Management" section in your account dashboard. This is often located
+    under "Account" or "Funds."
+
+
+    3. **Select the Withdrawal Method**: Choose your preferred method of withdrawing
+    funds. This could be a bank transfer, a check, or another available option.
+
+
+    4. **Enter Withdrawal Amount**: Specify the amount you want to withdraw. Make
+    sure it does not exceed your available balance.
+
+
+    5. **Provide Necessary Details**: Fill in any required information, such as bank
+    account details or mailing address for the check.
+
+
+    6. **Confirm Withdrawal**: Review your withdrawal details and confirm the request.
+    You might need to complete additional security steps or authentication.
+
+
+    7. **Wait for Processing**: Withdrawal processing times can vary depending on
+    the method chosen. Bank transfers generally take a few business days.
+
+
+    Make sure you follow all security measures to keep your account safe during this
+    process. If you encounter any issues, it''s a good idea to contact the support
+    team for assistance.'
+  expected_agent: faq_agent
+  expected_tools:
+  - faq_rag_tool
+
+- id: gt_002
+  question: How to deposit money?
+  expected_answer: To deposit money into your trading account, log into the platform
+    and navigate to the "Funds" or "Deposit" section. There, you'll find various methods
+    available for depositing money, such as bank transfer, credit/debit card, or e-wallet.
+    Follow the prompts to enter the required details and complete the transaction.
+    Always ensure you're following secure practices when entering financial information.
+    If you need detailed assistance, please contact customer support.
+  expected_agent: faq_agent
+  expected_tools:
+  - faq_rag_tool
+
+- id: gt_003
+  question: Buy 10 shares of AAPL
+  expected_answer: Before proceeding, could you please confirm if you'd like to place
+    a 'market' order or a 'limit' order? If 'limit', please specify the price.
+  expected_agent: task_agent
+  expected_tools:
+  - buy_stock
+
+- id: gt_004
+  question: What is a stop-loss order?
+  expected_answer: 'A stop-loss order is a trading order placed with a broker to sell
+    a security when it reaches a certain price, known as the stop price. Its main
+    purpose is to limit an investor''s loss on a position in a security. Here’s how
+    it works:
+
+
+    - **Stop Price**: The investor selects a stop price, which is the trigger point.
+    Once the security''s market price falls to this level, the stop-loss order becomes
+    a market order.
+
+    - **Market Order**: A market order is executed immediately at the current market
+    price. This means that once the stop price is reached, the order will be filled
+    at the best available price, which may differ from the stop price.
+
+
+    **Benefits**:
+
+    - **Risk Management**: It helps investors manage risk without having to actively
+    monitor stock performance.
+
+    - **Emotional Control**: It removes emotions from trading decisions by creating
+    an automatic plan for potentially falling prices.
+
+
+    **Keep in Mind**:
+
+    - **Execution Price**: The execution price may differ from the stop price, especially
+    in volatile markets.
+
+
+    Stop-loss orders are a useful tool for risk management and can be set up easily
+    on most trading platforms.'
+  expected_agent: faq_agent
+  expected_tools:
+  - faq_rag_tool
+
+- id: gt_005
+  question: How to clear positions?
+  expected_answer: 'To clear positions on the platform, you typically need to follow
+    these steps:
+
+
+    1. **Access Your Portfolio:** Log into your trading account and navigate to the
+    portfolio or positions section. This is where all your current positions are displayed.
+
+
+    2. **Select the Position to Clear:** Identify the position you want to close.
+    You will usually see details like the stock, quantity, and current market value.
+
+
+    3. **Choose Close/Exit Option:** Select the option to close or exit the position.
+    This might be labeled as "Sell," "Close Position," or a similar term, depending
+    on the platform.
+
+
+    4. **Confirm the Trade:** Review the details of your closing trade, such as the
+    quantity and order type (market or limit). Confirm the transaction to finalize
+    the position clearance.
+
+
+    5. **Check Order Status:** After submitting the order, you can monitor the order
+    status to ensure it gets executed. This may be within minutes for a market order
+    or vary for a limit order.
+
+
+    If you encounter any issues or need further assistance, it’s a good idea to contact
+    the platform support for personalized help.'
+  expected_agent: faq_agent
+  expected_tools:
+  - faq_rag_tool
+
+
+- id: gt_006
+  question: Sell 5 shares of GOOGL
+  expected_answer: Before I proceed, please confirm if you would like to place a market
+    order or a limit order for selling 5 shares of GOOGL. If you have no preference,
+    a market order will be used by default.
+  expected_agent: task_agent
+  expected_tools:
+  - sell_stock
+
+- id: gt_007
+  question: Analyze the market trends for tech stocks
+  expected_answer: "### Current Market Trends for Tech Stocks (October 2023)\n\n**Overview:**\n\
+    1. **General Market Conditions:**\n   - U.S. equities have declined in October\
+    \ 2023, with the S&P and Nasdaq indices dropping more than 10% from their July\
+    \ highs, officially entering correction territory. [Nasdaq](https://www.nasdaq.com/articles/october-2023-review-and-outlook)\n\
+    \n2. **Performance of Big Tech:**\n   - While technology stocks in general saw\
+    \ declines, major tech firms still enabled the S&P 500 to outperform its equal-weight\
+    \ counterpart by 4.1%. However, there is a broader sentiment of reduced investment\
+    \ in tech, particularly those related to AI ventures. [Nasdaq](https://www.nasdaq.com/articles/october-2023-review-and-outlook)\
+    \ & [Yahoo Finance](https://finance.yahoo.com/news/7-best-tech-stocks-buy-173752162.html)\n\
+    \n3. **Sector-Specific Insights:**\n   - The Market saw outflow from sectors heavily\
+    \ invested in AI, indicating a potential shift or cooling off of the AI hype cycle.\
+    \ [Yahoo Finance](https://finance.yahoo.com/news/7-best-tech-stocks-buy-173752162.html)\n\
+    \   - Despite the current downturn, tech stocks have shown a strong performance\
+    \ year-to-date, with the Morningstar US Technology Index appreciating by 19.53%,\
+    \ compared to a 16.97% rise in the broader market index. [Morningstar](https://www.morningstar.com/stocks/best-tech-stocks-buy)\n\
+    \n**Insights:**\n- **Potential Risks:** The corrections of major indices, including\
+    \ tech-heavy Nasdaq, indicate increased volatility and highlight the risks associated\
+    \ with high valuations in the tech sector.\n  \n- **Investment Opportunities:**\
+    \ Despite the market correction, tech stocks have historically bounced back and\
+    \ continued to provide strong returns, particularly those not overly reliant on\
+    \ currently less favorable sectors like AI. For long-term investors, this might\
+    \ present a buying opportunity when prices are relatively lower.\n\n- **Market\
+    \ Sentiment:** The broader market sentiment remains cautious, with concerns about\
+    \ sustained high U.S. interest rates and strong inflation affecting investment\
+    \ decisions across the board. [Schroders](https://www.schroders.com/en/global/individual/insights/monthly-markets-review---october-2023/)\n\
+    \n### Conclusion:\nThe technology sector is experiencing a correction, following\
+    \ broad market trends. While this might reflect increased caution from investors,\
+    \ particularly regarding AI, the long-term historical performance suggests resilience.\
+    \ Investors are advised to maintain a diversified approach while being aware of\
+    \ short-term market fluctuations and sector-specific developments."
+  expected_agent: market_insights_agent
+  expected_tools:
+  - market_analysis_rag_tool
+  - web_search_tool
+
+
+- id: gt_008
+  question: How do I check my account balance?
+  expected_answer: 'To check your account balance on our trading platform, follow
+    these steps:
+
+
+    1. **Log in to your account:** Use your credentials to access your trading account
+    on our platform.
+
+
+    2. **Navigate to the Dashboard:** Once logged in, go to the main dashboard where
+    you can view an overview of your account.
+
+
+    3. **Find the Account Balance Section:** Look for the "Account Balance" or "Portfolio"
+    section. This is usually prominently displayed, providing a summary of your total
+    balance, including available cash and invested funds.
+
+
+    4. **Check Detailed Balances:** For more detailed information, click on the "Account
+    Balance" or "Portfolio" section to see a breakdown of your cash balance, total
+    equity, and other important financial metrics related to your account.
+
+
+    If you have any issues or need further assistance, please feel free to reach out
+    to our support team.'
+  expected_agent: faq_agent
+  expected_tools:
+  - faq_rag_tool
+
+
+- id: gt_009
+  question: Buy 2 call options contracts for TSLA
+  expected_answer: The order to buy 2 call options contracts for TSLA has been successfully
+    placed as a market order. If you need further assistance, feel free to ask!
+  expected_agent: task_agent
+  expected_tools:
+  - buy_options
+
+
+- id: gt_010
+  question: What are the best performing stocks this week?
+  expected_answer: "Here are some of the best performing stocks over the past week:\n\
+    \n1. **AMC Robotics Corporation (AMCI)**\n   - **Change**: 256.46%\n   - **Stock\
+    \ Price**: $9.66\n   - **Volume**: 1,150,384\n   - **Market Cap**: $226.47 million\n\
+    \n2. **NovaBay Pharmaceuticals, Inc. (NBY)**\n   - **Change**: 89.29%\n   - **Stock\
+    \ Price**: $5.30\n   - **Volume**: 30,981,225\n   - **Market Cap**: $667.86 million\n\
+    \n3. **Athira Pharma, Inc. (ATHA)**\n   - **Change**: 80.10%\n\nFor more detailed\
+    \ information on these stocks, you can visit the source [here](https://stockanalysis.com/markets/gainers/week/).\n\
+    \nPlease be advised that stock performances can be volatile and past performance\
+    \ is not necessarily indicative of future results. Consider consulting with a\
+    \ financial advisor before making investment decisions."
+  expected_agent: market_insights_agent
+  expected_tools:
+  - market_analysis_rag_tool
+  - web_search_tool
+
+
+- id: gt_011
+  question: How to set up price alerts?
+  expected_answer: 'To set up price alerts on our platform, please follow these steps:
+
+
+    1. **Log into your account:** Make sure you are logged into your trading account.
+
+
+    2. **Navigate to the ''Alerts'' section:** You can usually find this under the
+    main menu or within the portfolio or market watch sections.
+
+
+    3. **Select ''Create New Alert'':** This option will allow you to set a new price
+    alert.
+
+
+    4. **Choose the asset/security:** Indicate which stock or asset you want to monitor
+    by entering its name or symbol.
+
+
+    5. **Set alert conditions:** Define the conditions that will trigger the alert,
+    such as the price reaching above or below a certain threshold.
+
+
+    6. **Configure alert preferences:** You can choose how you want to be notified
+    (e.g., email, SMS, in-app notification).
+
+
+    7. **Save the alert:** Once you have configured everything, make sure to save
+    your settings.
+
+
+    You should now receive notifications according to the conditions you''ve set.
+    If you encounter any issues or need further help, feel free to contact our support
+    team.'
+  expected_agent: faq_agent
+  expected_tools:
+  - faq_rag_tool
+
+
+- id: gt_012
+  question: Sell 3 put options for NVDA
+  expected_answer: Before proceeding, can you confirm that you want to sell 3 put
+    options for NVDA? Also, please let me know if you have a preference for a market
+    or limit order.
+  expected_agent: task_agent
+  expected_tools:
+  - sell_options
+
+
+- id: gt_013
+  question: What is the market outlook for renewable energy stocks?
+  expected_answer: "The renewable energy sector has been attracting considerable attention\
+    \ due to the global push for sustainability and regulatory support for reducing\
+    \ carbon emissions. Here is an overview of the market outlook for renewable energy\
+    \ stocks as of 2023:\n\n### Market Outlook\n\n1. **Industry Growth**: \n    -\
+    \ The renewable energy sector is expected to continue its growth trajectory driven\
+    \ by global commitments to reduce carbon emissions. The sector includes solar,\
+    \ wind, hydroelectric, geothermal, and bioenergy companies.\n    \n2. **Policy\
+    \ Support**:\n    - Government policies and international agreements like the\
+    \ Paris Agreement are bolstering investments in renewable energy. Tax incentives\
+    \ and subsidies are helping to lower the cost of technology adoption.\n\n3. **Technological\
+    \ Advancements**:\n    - Innovations in storage technology and efficiency improvements\
+    \ in solar panels and wind turbines are reducing costs and improving the competitiveness\
+    \ of renewable energy sources.\n\n4. **Investment Trends**:\n    - Many institutional\
+    \ investors and funds are increasing allocations to sustainable and ESG (Environmental,\
+    \ Social, and Governance) investments, boosting the demand for renewable energy\
+    \ stocks.\n\n5. **Risk Factors**:\n    - Risks include changes in government policy,\
+    \ technological disruption, and fluctuating prices of renewable energy technologies.\
+    \ Additionally, renewable energy companies are often subject to regulatory risks\
+    \ and project-specific hurdles.\n\n6. **Market Volatility**:\n    - Like any other\
+    \ sector, renewable energy stocks can be volatile and are influenced by macroeconomic\
+    \ factors, political climates, and technological innovations.\n\n### Opportunities\
+    \ & Risks\n\n- **Opportunities** include tapping into emerging markets, further\
+    \ cost reductions, and potential breakthroughs in energy storage.\n- **Risks**\
+    \ involve market saturation, policy shifts, and potential competition from other\
+    \ green technologies like hydrogen.\n\nOverall, while the renewable energy sector\
+    \ presents promising opportunities for growth, investors should consider the inherent\
+    \ risks associated with market volatility and technological advancements. Diversification\
+    \ within the sector and a focus on companies with strong fundamentals can be prudent\
+    \ strategies for mitigating risks.\n\nIf you are interested in specific companies\
+    \ or regions, further detailed analysis would be beneficial."
+  expected_agent: market_insights_agent
+  expected_tools:
+  - market_analysis_rag_tool
+  - web_search_tool
+
+
+- id: gt_014
+  question: How to update my profile information?
+  expected_answer: 'It seems I''m unable to retrieve specific instructions for updating
+    your profile information at the moment. However, I can guide you through a general
+    process that usually applies:
+
+
+    1. **Log In**: Start by logging into your account on the platform.
+
+
+    2. **Access Profile Settings**: Once logged in, look for an option like "Profile,"
+    "Account Settings," or "User Settings." This is often found in the upper right-hand
+    corner of the screen, sometimes represented by your profile picture or an icon.
+
+
+    3. **Edit Profile Information**: Within the profile or account settings, you should
+    find options to edit your personal information. This can include your email address,
+    phone number, mailing address, etc.
+
+
+    4. **Save Changes**: Make sure to save any changes you make before exiting the
+    settings page.
+
+
+    5. **Verification**: Some platforms may require you to verify changes by entering
+    a password or confirming through an email or SMS.
+
+
+    If these steps don''t work for you or if you''re unable to find the option, I
+    recommend contacting the platform''s support team for precise guidance tailored
+    to your account setup. Always ensure that your information is accurate and secure
+    to protect your account.'
+  expected_agent: faq_agent
+  expected_tools:
+  - faq_rag_tool
+
+
+- id: gt_015
+  question: Buy 15 shares of MSFT at market price
+  expected_answer: The order to buy 15 shares of MSFT at market price has been successfully
+    placed. If you need further assistance, feel free to ask!
+  expected_agent: task_agent
+  expected_tools:
+  - buy_stock
+
+
+- id: gt_016
+  question: Compare Apple and Microsoft stock performance
+  expected_answer: 'Here''s a comparative analysis of Apple and Microsoft''s stock
+    performance in 2023:
+
+
+    ### Apple Inc. (AAPL)
+
+    - **Performance Overview**: Apple underperformed relative to other mega-cap tech
+    companies in 2023, primarily due to its longest revenue decline in over two decades,
+    according to a CNBC report. [Source](https://www.cnbc.com/2023/12/29/apple-underperformed-mega-cap-peers-in-2023-due-to-revenue-slide.html).
+
+    - **Stock Price**: Historical pricing data from Yahoo Finance shows fluctuations,
+    with prices generally ranging between $175 to $185 towards the end of August 2023.
+    [Source](https://finance.yahoo.com/quote/AAPL/history?period1=1659312000&period2=1695340800&inter-).
+
+
+    ### Microsoft Corp. (MSFT)
+
+    - **Performance Overview**: In stark contrast, Microsoft saw its stock soar by
+    57% in 2023, according to Nasdaq. This surge was partly credited to an improving
+    economic landscape. [Source](https://www.nasdaq.com/articles/why-microsoft-stock-rallied-57-in-2023).
+
+    - **Stock Price**: Data from StatMuse Money indicates that Microsoft''s stock
+    was trading around $370 towards the end of December 2023. [Source](https://www.statmuse.com/money/ask/microsoft-stock-price-in-2023).
+
+
+    ### Summary
+
+    - **Apple** faced challenges with declining revenues, impacting its stock performance
+    negatively in comparison to its peers.
+
+    - **Microsoft** experienced a significant increase, improving from its previous
+    year''s performance largely due to favorable economic conditions and perhaps strategic
+    company advancements.
+
+
+    It''s essential for investors to consider these trends in the context of broader
+    economic conditions and company-specific developments. Past performance is not
+    always indicative of future results.'
+  expected_agent: market_insights_agent
+  expected_tools:
+  - market_analysis_rag_tool
+  - web_search_tool
+
+
+- id: gt_017
+  question: How to view my transaction history?
+  expected_answer: It seems I couldn't find the specific steps to view your transaction
+    history. I recommend checking the platform's "Transactions" or "History" section,
+    which is commonly found in the navigation menu. If this doesn't help, please contact
+    support for assistance.
+  expected_agent: faq_agent
+  expected_tools:
+  - faq_rag_tool
+
+
+- id: gt_018
+  question: Sell 20 shares of AMZN
+  expected_answer: Before I proceed with selling 20 shares of AMZN, could you please
+    confirm the order type you would like to use? The available options are "market"
+    and "limit." If you don't specify, a "market" order will be used by default.
+  expected_agent: task_agent
+  expected_tools:
+  - sell_stock
+
+
+- id: gt_019
+  question: What is technical analysis and how is it used?
+  expected_answer: "Technical analysis is a method used to evaluate and predict the\
+    \ future movements of financial markets, such as stocks or currencies, by analyzing\
+    \ statistics generated by market activity. It focuses on patterns in price movements,\
+    \ trading volumes, and other technical indicators.\n\n### Key Components of Technical\
+    \ Analysis\n\n1. **Price Trends**: Analysts examine historical price data to identify\
+    \ patterns or trends. Patterns such as head and shoulders, flag, and pennants\
+    \ are often used to predict future price movements.\n\n2. **Support and Resistance\
+    \ Levels**: These are specific price levels on a chart that indicate the likelihood\
+    \ of a price movement in a certain direction. Support levels suggest where the\
+    \ price might stop falling, while resistance levels suggest where it might stop\
+    \ rising.\n\n3. **Technical Indicators**: These are mathematical calculations\
+    \ based on price, volume, or open interest. Common indicators include Moving Averages,\
+    \ Relative Strength Index (RSI), Moving Average Convergence Divergence (MACD),\
+    \ and Bollinger Bands.\n\n4. **Chart Patterns**: Patterns on price charts, such\
+    \ as candlestick patterns, can indicate potential market reversals or continuation.\
+    \ Examples include Doji, Hammer, and Engulfing patterns.\n\n5. **Volume Analysis**:\
+    \ Changes in trading volume can provide insights into market sentiment and strength\
+    \ behind price movements.\n\n### How Technical Analysis is Used\n\n- **Identifying\
+    \ Trading Signals**: Traders use technical indicators to find buy or sell signals.\
+    \ For instance, a moving average crossover could indicate a new trend direction.\n\
+    \n- **Trend Identification and Analysis**: By identifying trends, traders attempt\
+    \ to ride the trend until data suggest it may reverse. \n\n- **Risk Management**:\
+    \ Setting stop-loss levels based on support and resistance can help traders protect\
+    \ their capital.\n\n- **Comparison with Fundamental Analysis**: While technical\
+    \ analysis focuses on price movements, fundamental analysis involves evaluating\
+    \ a company's financial health. Many traders use a combination of both to make\
+    \ more informed decisions.\n\n### Risks and Considerations\n\n- **Market Noise**:\
+    \ Short-term price movements can be unpredictable and influenced by random market\
+    \ noise.\n\n- **Overreliance on Past Performance**: Technical analysis relies\
+    \ heavily on historical data, which may not always predict future performance\
+    \ accurately.\n\n- **Subjectivity**: Different analysts might interpret charts\
+    \ and indicators in various ways, leading to different conclusions.\n\nTechnical\
+    \ analysis is widely used by traders to make decisions on entry and exit points.\
+    \ It requires experience and practice to interpret correctly, and while it provides\
+    \ insights, it should be used in conjunction with other analyses and risk management\
+    \ strategies."
+  expected_agent: market_insights_agent
+  expected_tools:
+  - market_analysis_rag_tool
+
+
+- id: gt_020
+  question: How to change my password?
+  expected_answer: 'To change your password on our stock trading platform, please
+    follow these steps:
+
+
+    1. **Log In**: First, log in to your account using your current credentials.
+
+    2. **Account Settings**: Navigate to the account settings or profile section.
+    This is usually found in the top-right corner of the platform interface.
+
+    3. **Change Password**: Look for an option labeled "Change Password" or "Security
+    Settings."
+
+    4. **Enter Current Password**: You may be prompted to enter your current password
+    for verification.
+
+    5. **Set New Password**: Enter your new password. Ensure it meets the platform''s
+    security requirements (e.g., minimum length, includes numbers and symbols).
+
+    6. **Confirm New Password**: Re-enter your new password to confirm.
+
+    7. **Save Changes**: Click the "Save" or "Update" button to apply changes.
+
+
+    If you encounter any issues during this process, feel free to contact our support
+    team for further assistance.'
+  expected_agent: faq_agent
+  expected_tools:
+  - faq_rag_tool
+
+
+- id: gt_021
+  question: Buy 50 shares of JPM
+  expected_answer: Before proceeding, could you please confirm if you'd like to place
+    a 'market' order or a 'limit' order for buying 50 shares of JPM? If it's a 'limit'
+    order, please provide the limit price.
+  expected_agent: task_agent
+  expected_tools:
+  - buy_stock
+
+
+- id: gt_022
+  question: What are the risks of options trading?
+  expected_answer: 'Options trading presents several risks that traders should be
+    aware of. Below are some of the most significant risks associated with options
+    trading:
+
+
+    1. **Market Risk**: Options prices are influenced by the underlying asset''s price
+    movements. Large price swings can result in significant losses.
+
+
+    2. **Leverage Risk**: Options involve leverage, meaning you can control a large
+    position with a relatively small amount of money. While this can amplify profits,
+    it can also amplify losses.
+
+
+    3. **Expiration Risk**: Options have an expiration date, making them time-sensitive.
+    If the expected move in the underlying asset doesn''t occur before expiration,
+    the option can become worthless.
+
+
+    4. **Liquidity Risk**: Some options can be illiquid, meaning there might be few
+    buyers or sellers in the market. This can make it difficult to enter or exit positions
+    at desired prices.
+
+
+    5. **Volatility Risk**: The value of options is greatly affected by changes in
+    market volatility. Sudden shifts in volatility can impact option pricing significantly.
+
+
+    6. **Assignment Risk (for Options Sellers)**: Sellers of options can be assigned
+    at any time before expiration, which might result in unanticipated stock purchases
+    or sales.
+
+
+    7. **Complexity Risk**: Options strategies can be complex, and understanding the
+    pricing and mechanics of options can be challenging. Misunderstandings can lead
+    to poor trading decisions.
+
+
+    8. **Risk of Total Loss**: Especially in the case of buying options (like calls
+    and puts), there''s a risk of losing the entire premium paid if the options expire
+    out of the money.
+
+
+    9. **Interest Rate Risk**: Changes in interest rates can affect the pricing of
+    options, an element often considered in option pricing models like Black-Scholes.
+
+
+    10. **Model Risk**: Options pricing often relies on mathematical models. If the
+    models are wrong or the assumptions change, it can lead to mispricing and unexpected
+    losses.
+
+
+    **Risk Warnings**: Options trading is not suitable for all investors due to the
+    high risks and complexities involved. It''s crucial for traders to fully understand
+    these risks, have a well-defined risk management strategy, and be prepared for
+    the likelihood of losing their entire investment. Consulting with a financial
+    advisor or doing comprehensive research is advised before engaging in options
+    trading.'
+  expected_agent: market_insights_agent
+  expected_tools:
+  - market_analysis_rag_tool
+- id: gt_023
+  question: How to enable two-factor authentication?
+  expected_answer: "I'm currently unable to access the step-by-step instructions for\
+    \ enabling two-factor authentication (2FA) on our platform. However, enabling\
+    \ 2FA typically involves going to your account settings, selecting security options,\
+    \ and following the instructions to link your account with an authentication app\
+    \ like Google Authenticator. \n\nFor the most accurate and detailed guidance,\
+    \ please contact our support team or check the platform's help resources for a\
+    \ dedicated guide on enabling two-factor authentication. Prioritizing security\
+    \ is critical, so it's great that you're adding this extra layer of protection\
+    \ to your account!"
+  expected_agent: faq_agent
+  expected_tools:
+  - faq_rag_tool
+
+
+- id: gt_024
+  question: Sell 8 shares of META
+  expected_answer: The order to sell 8 shares of META as a market order has been successfully
+    placed.
+  expected_agent: task_agent
+  expected_tools:
+  - sell_stock
+
+
+- id: gt_025
+  question: What is a dividend and how does it work?
+  expected_answer: 'A dividend is a distribution of a portion of a company''s earnings
+    to its shareholders. It is typically paid out in cash or additional shares of
+    stock. Dividends are usually paid by well-established companies with a history
+    of profitability, and they are often distributed on a regular basis, such as quarterly
+    or annually.
+
+
+    Here''s how dividends work:
+
+
+    1. **Declaration**: A company''s board of directors decides to issue a dividend.
+    They determine the dividend amount and set a record date to identify eligible
+    shareholders.
+
+
+    2. **Ex-dividend Date**: This is the cutoff date to be eligible for the dividend.
+    If you purchase the stock before this date, you will receive the dividend. If
+    you buy the stock on or after the ex-dividend date, the dividend goes to the seller.
+
+
+    3. **Record Date**: This is the date when the company reviews its records to determine
+    the shareholders eligible to receive the dividend.
+
+
+    4. **Payment Date**: This is when the dividend is actually paid out to shareholders.
+
+
+    Dividends are an attractive feature for investors seeking regular income from
+    their investments, and they can be reinvested to purchase additional shares, often
+    through a Dividend Reinvestment Plan (DRIP).
+
+
+    If you need more detailed guidance on how dividends work on our platform, feel
+    free to ask!'
+  expected_agent: market_insights_agent
+  expected_tools:
+  - market_analysis_rag_tool
+
+
+- id: gt_026
+  question: How to download my account statement?
+  expected_answer: "It seems I couldn't retrieve specific instructions for downloading\
+    \ your account statement. However, you can typically download your account statement\
+    \ by following these general steps:\n\n1. **Log in to your Account:**\n   - Open\
+    \ the platform and enter your login credentials.\n\n2. **Navigate to the Account\
+    \ Section:**\n   - Look for a section labeled \"Account,\" \"Profile,\" or something\
+    \ similar.\n\n3. **Find Statements or Documents:**\n   - Within the Account section,\
+    \ there is usually a subsection for \"Statements,\" \"Reports,\" or \"Documents.\"\
+    \n\n4. **Select the Desired Statement:**\n   - Choose the date range or specific\
+    \ statement you wish to download.\n\n5. **Download:**\n   - There should be an\
+    \ option to download or export the statement, usually in PDF or Excel format.\n\
+    \nIf you encounter any issues or if these general steps don't apply to your specific\
+    \ situation, I recommend contacting the platform's customer support for detailed\
+    \ assistance tailored to your account."
+  expected_agent: faq_agent
+  expected_tools:
+  - faq_rag_tool
+
+
+- id: gt_027
+  question: Buy 1 call option for SPY
+  expected_answer: The order to buy 1 call option contract for SPY has been successfully
+    placed as a market order. If you have any further requests or need additional
+    assistance, feel free to ask!
+  expected_agent: task_agent
+  expected_tools:
+  - buy_options
+
+
+- id: gt_028
+  question: What is the difference between market and limit orders?
+  expected_answer: "Market and limit orders are two common types of orders used in\
+    \ trading, and they have distinct characteristics:\n\n1. **Market Orders:**\n\
+    \   - A market order is an order to buy or sell a stock immediately at the current\
+    \ best available price.\n   - It is executed as soon as possible, without regard\
+    \ for the price.\n   - Market orders are preferred when you want to ensure the\
+    \ execution of your order but are less concerned about the exact price.\n   -\
+    \ They are generally used when you want to quickly enter or exit a position.\n\
+    \n2. **Limit Orders:**\n   - A limit order is an order to buy or sell a stock\
+    \ at a specific price or better.\n   - It will only be executed if the market\
+    \ reaches the price you set.\n   - Limit orders are useful when you want to have\
+    \ more control over the price at which your order is executed.\n   - They are\
+    \ beneficial when buying at a lower price or selling at a higher price than the\
+    \ current market level.\n\nIn summary, the key difference between the two is that\
+    \ market orders prioritize execution speed over price, while limit orders prioritize\
+    \ price control over the certainty of execution."
+  expected_agent: faq_agent
+  expected_tools:
+  - faq_rag_tool
+
+
+- id: gt_029
+  question: Analyze the healthcare sector performance
+  expected_answer: 'I attempted to retrieve a current analysis of the healthcare sector''s
+    performance, but it seems there was an issue accessing the data. Nevertheless,
+    I can provide a general overview based on common analyses, which you can verify
+    with the most recent market data from sources like financial news outlets or stock
+    platforms.
+
+
+    ### General Overview of the Healthcare Sector Performance:
+
+
+    #### Key Factors Influencing the Sector:
+
+    1. **Regulatory Changes**: Compliance with health regulations and policies significantly
+    affects the sector.
+
+    2. **Technological Advancements**: Innovations in medical equipment and pharmaceuticals
+    drive growth.
+
+    3. **Demographics**: Increasing aging populations fuel demand for healthcare services.
+
+    4. **Pandemic Impact**: The COVID-19 pandemic caused disruptions but also increased
+    the focus on healthcare investments.
+
+
+    #### Recent Trends (Typical):
+
+    - **Mergers & Acquisitions**: Frequently seen in pharmaceuticals and biotech to
+    expand capabilities.
+
+    - **Biotech Growth**: Innovations in drug development and gene therapy are notable
+    growth areas.
+
+    - **Health IT**: A rise in telemedicine and digital health technologies.
+
+
+    #### Opportunities:
+
+    - **Emerging Markets**: Expansion in under-served regions can offer growth.
+
+    - **Telehealth**: Continued growth potential due to convenience and technology
+    adoption.
+
+    - **Biotechnology**: High potential for breakthroughs in personalized medicine.
+
+
+    #### Risks:
+
+    - **Regulatory Risks**: Stringent policies and costs associated with approvals.
+
+    - **Market Competition**: High competition can limit pricing power.
+
+    - **Economic Sensitivity**: Economic downturns can affect funding and investment.
+
+
+    For an updated and detailed analysis, I recommend checking the latest sector reports
+    from financial services or platforms that specialize in market analysis. If you
+    need specific company performance within the healthcare sector, feel free to ask!'
+  expected_agent: market_insights_agent
+  expected_tools:
+  - market_analysis_rag_tool
+  - web_search_tool
+
+  
+- id: gt_030
+  question: Sell 10 put options for QQQ
+  expected_answer: 'Before proceeding, please confirm:
+
+    - You want to sell 10 put options for QQQ.
+
+    - The order type will be "market" unless specified otherwise.
+
+
+    Shall I go ahead and execute this order?'
+  expected_agent: task_agent
+  expected_tools:
+  - sell_options

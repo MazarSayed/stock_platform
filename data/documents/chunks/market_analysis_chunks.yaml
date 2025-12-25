@@ -1,0 +1,56 @@
+chunks:
+- chunk_index: 0
+  source: market_analysis_instructions.pdf
+  text: "Market Analysis Instructions for Agent\nIdentify the Market\n\x7F Determine\
+    \ the type of market: Stock, Forex, Commodity, Cryptocurrency, or\nDerivatives.\n\
+    \x7F Consider relevant factors for each market:\n\x7F Stocks: Company fundamentals,\
+    \ earnings, sector performance, macroeconomic\nconditions.\n\x7F Forex: Currency\
+    \ pairs, interest rates, economic indicators, geopolitical events.\n\x7F Commodities:\
+    \ Supply-demand balance, inventory reports, seasonal trends.\n\x7F Cryptocurrencies:\
+    \ Network activity, adoption metrics, regulatory environment.\nPerform Fundamental\
+    \ Analysis\nEvaluate intrinsic value based on economic, financial, and qualitative\
+    \ factors.\n\x7F For stocks: Analyze revenue, net profit, debt ratio, EPS, dividend\
+    \ yield.\n\x7F For forex: Assess interest rate differentials, trade balance, inflation,\
+    \ employment data.\n\x7F For commodities: Consider supply-demand data, seasonal\
+    \ factors, inventory reports.\n\x7F For cryptocurrencies: Examine network activity,\
+    \ adoption trends, regulations.\nConduct Technical Analysis"
+- chunk_index: 1
+  source: market_analysis_instructions.pdf
+  text: "\x7F For commodities: Consider supply-demand data, seasonal factors, inventory\
+    \ reports.\n\x7F For cryptocurrencies: Examine network activity, adoption trends,\
+    \ regulations.\nConduct Technical Analysis\nExamine price data to identify trends,\
+    \ reversals, and trade opportunities.\n\x7F Use charts (candlestick, line, OHLC)\
+    \ and identify patterns such as head & shoulders,\ntriangles, double tops/bottoms.\n\
+    \x7F Apply indicators to detect signals:\nMoving Averages (SMA, EMA)\nRelative\
+    \ Strength Index (RSI)\nMACD (Moving Average Convergence Divergence)\nBollinger\
+    \ Bands\n\x7F Identify support and resistance levels to guide entries and exits.\n\
+    Analyze Market Sentiment\n\x7F Gauge the overall market mood to anticipate trends."
+- chunk_index: 2
+  source: market_analysis_instructions.pdf
+  text: "\x7F Use sentiment indicators such as bullish/bearish ratios, volume spikes,\
+    \ or unusual option\nactivity.\n\x7F Consider the impact of major news events,\
+    \ community sentiment, and institutional\npositioning.\nUse Market Indicators\n\
+    \x7F Volume: Confirms strength of price moves.\n\x7F Volatility: Assess using\
+    \ ATR, standard deviation, or volatility indexes.\n\x7F Leading Indicators: Identify\
+    \ potential future market movements.\n\x7F Lagging Indicators: Confirm existing\
+    \ trends or reversals.\nImplement Risk Management\n\x7F Determine stop-loss and\
+    \ take-profit levels before any position.\n\x7F Manage position size relative\
+    \ to overall portfolio; risk a small percentage per trade.\nDiversify across instruments\
+    \ and asset classes.\n\x7F Use leverage carefully; understand potential gains\
+    \ and losses.\nFollow a Structured Analysis Workflow\n\x7F Define market type\
+    \ and timeframe.\n\x7F Conduct fundamental analysis to identify assets with potential.\n\
+    \x7F Apply technical analysis to determine optimal entry and exit points."
+- chunk_index: 3
+  source: market_analysis_instructions.pdf
+  text: "\x7F Define market type and timeframe.\n\x7F Conduct fundamental analysis\
+    \ to identify assets with potential.\n\x7F Apply technical analysis to determine\
+    \ optimal entry and exit points.\n\x7F Check market sentiment for additional confirmation.\n\
+    \x7F Review volume and volatility indicators.\n\x7F Apply risk management and\
+    \ position sizing.\n\x7F Monitor outcomes and refine strategy iteratively.\nTools\
+    \ & Data for Analysis\n\x7F Use charts, indicators, and performance metrics to\
+    \ evaluate assets.\nTrack historical data and account for patterns and volatility.\n\
+    \x7F Maintain clear records of analysis steps, trade decisions, and outcomes.\n\
+    Key Guidelines\n\x7F Always combine multiple perspectives (fundamental, technical,\
+    \ sentiment).\n\x7F Ensure risk is managed before acting on any signal.\n\x7F\
+    \ Review and refine methodology periodically.\n\x7F Maintain clarity and structured\
+    \ reasoning in all analyses."

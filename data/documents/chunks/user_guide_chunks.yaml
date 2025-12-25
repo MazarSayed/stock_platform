@@ -1,0 +1,89 @@
+chunks:
+- chunk_index: 0
+  source: user_guide.pdf
+  text: "Stock Trading Platform User Guide\nPlatform Overview\n\x7F The trading platform\
+    \ provides access to multiple asset classes including Forex, CFDs,\nindices, commodities,\
+    \ shares, ETFs, and cryptocurrencies.\n\x7F Users can monitor market data in real-time\
+    \ and execute trades using market, limit, stop,\ntrailing stop, OCO, and conditional\
+    \ orders.\n\x7F The platform allows multiple layouts, charting options, and technical\
+    \ indicators to\nsupport analysis.\n\x7F Users can track multiple instruments\
+    \ simultaneously with customizable dashboards.\nAccount Security & Verification\n\
+    \x7F Enable two-factor authentication (2FA) to secure your account.\n\x7F Keep\
+    \ your login credentials confidential and update your password regularly.\n\x7F\
+    \ Platforms may require account verification documents such as proof of identity\
+    \ and proof\nof residence.\n\x7F Never share your API keys or access tokens with\
+    \ unauthorized applications.\n\x7F Regularly review account activity and login\
+    \ history to detect unusual behavior.\nTrading Workflows"
+- chunk_index: 1
+  source: user_guide.pdf
+  text: "of residence.\n\x7F Never share your API keys or access tokens with unauthorized\
+    \ applications.\n\x7F Regularly review account activity and login history to detect\
+    \ unusual behavior.\nTrading Workflows\n\x7F Positions can be monitored in real-time\
+    \ with details including entry price, volume, P/L,\nand margin used.\n\x7F Stop\
+    \ Loss and Take Profit levels can be set for risk management.\n\x7F Pending orders\
+    \ can be configured with limit, stop, or conditional criteria.\n\x7F Trades can\
+    \ be executed in multiple ways: instant execution, market execution, or\nalgorithmic\
+    \ scripts (if supported).\n\x7F Users can use advanced charting tools to analyze\
+    \ trends, patterns, and price\nmovements before placing trades.\nMargin & Risk\
+    \ Management"
+- chunk_index: 2
+  source: user_guide.pdf
+  text: "\x7F **Maintenance margin*is the minimum equity required to keep positions\
+    \ open.\n\x7F **Required margin*includes leverage and spread and determines the\
+    \ capital required to\nopen a position.\n\x7F **Leverage*allows trading larger\
+    \ positions than your actual balance but increases both\npotential profits and\
+    \ losses.\n\x7F Positions may be automatically closed if account equity falls\
+    \ below margin requirements.\n\x7F Risk management best practices include using\
+    \ stop-loss orders, diversifying\ninstruments, and limiting trade size relative\
+    \ to account equity.\nOrder Types & Execution\n\x7F **Market Order:*Executes immediately\
+    \ at the current market price.\n\x7F **Limit Order:*Executes at a specified price\
+    \ or better.\n\x7F **Stop Order:*Becomes a market order once the stop price is\
+    \ reached.\n\x7F **Trailing Stop:*Dynamically adjusts the stop level as the market\
+    \ moves.\n\x7F **OCO Order:*One Cancels the Other, useful for managing multiple\
+    \ conditional trades."
+- chunk_index: 3
+  source: user_guide.pdf
+  text: "\x7F **Trailing Stop:*Dynamically adjusts the stop level as the market moves.\n\
+    \x7F **OCO Order:*One Cancels the Other, useful for managing multiple conditional\
+    \ trades.\n\x7F **Conditional Orders:*Pending orders triggered when a specific\
+    \ event occurs; multiple\nconditional orders can be chained to automate strategies.\n\
+    \x7F Orders can be partially filled, fully filled, or rejected based on market\
+    \ liquidity.\nPlatform Settings & Features\n\x7F Low-resource or eco modes help\
+    \ reduce computer load while the platform is running.\n\x7F Users can customize\
+    \ watchlists, instrument favorites, and chart layouts.\n\x7F Platforms support\
+    \ switching between demo and live accounts for practice or real trading.\n\x7F\
+    \ Alerts and notifications can be configured for price levels, margin warnings,\
+    \ or executed\norders.\n\x7F Multiple chart types are available: candlestick,\
+    \ line, OHLC, and renko charts.\nReporting & Analytics\n\x7F Daily and historical\
+    \ statements show trades, P/L, and margin usage."
+- chunk_index: 4
+  source: user_guide.pdf
+  text: "orders.\n\x7F Multiple chart types are available: candlestick, line, OHLC,\
+    \ and renko charts.\nReporting & Analytics\n\x7F Daily and historical statements\
+    \ show trades, P/L, and margin usage.\n\x7F Users can extract reports for a specific\
+    \ timeframe and export as CSV, PDF, or Excel.\n\x7F Real-time account equity,\
+    \ unrealized P/L, and realized P/L are displayed in dashboards."
+- chunk_index: 5
+  source: user_guide.pdf
+  text: "\x7F Performance analytics can include average holding time, most traded\
+    \ instruments, and\ntrade success ratios.\nSupport & Troubleshooting\n\x7F Most\
+    \ platforms provide 24/5 customer support via email, phone, or chat.\n\x7F If\
+    \ internet connectivity is lost, traders may contact support or use automatic\
+    \ orders to\nmanage positions.\n\x7F Common troubleshooting includes checking\
+    \ firewall/antivirus, updating the platform, and\nensuring stable internet connection.\n\
+    \x7F Regularly check account statements and transaction histories to ensure correctness.\n\
+    Glossary of Terms\n\x7F **Bid/Ask:*The prices at which instruments can be sold/bought.\n\
+    \x7F **P/L:*Profit or loss on positions.\n\x7F **CFD:*Contract for Difference,\
+    \ a leveraged trading product.\n\x7F **OCO Order:*One Cancels the Other, an advanced\
+    \ order type.\n\x7F **Margin:*Funds required to open and maintain positions.\n\
+    \x7F **Leverage:*The ratio of borrowed capital to account equity used to increase\
+    \ exposure."
+- chunk_index: 6
+  source: user_guide.pdf
+  text: "\x7F **Margin:*Funds required to open and maintain positions.\n\x7F **Leverage:*The\
+    \ ratio of borrowed capital to account equity used to increase exposure.\n\x7F\
+    \ **Equity:*Total account value including open positions and cash balance.\n\x7F\
+    \ **Unrealized P/L:*Profit or loss on open positions that has not yet been realized.\n\
+    \x7F **Realized P/L:*Profit or loss on positions that have been closed.\n\x7F\
+    \ **Stop Loss / Take Profit:*Levels set to automatically close positions to limit\
+    \ loss or\nsecure profits."
