@@ -41,13 +41,12 @@ def make_supervisor_node(llm: BaseChatModel, members: list[str]) -> Callable:
         Returns:
             Updated state with next node and response
         """
+        state_messages = state.get("messages", [])
         messages = [
             {"role": "system", "content": system_prompt},
         ] + state["messages"]
         
-        
-
-        last_message = state.get("messages", [])[-1] if state.get("messages") else None
+        last_message = state_messages[-1] if state_messages else None
         agent_responded = (
             last_message 
             and hasattr(last_message, "name") 
@@ -57,27 +56,30 @@ def make_supervisor_node(llm: BaseChatModel, members: list[str]) -> Callable:
         
         if agent_responded:
             goto = "FINISH"
+            final_response = state.get("response")
+            
+            if not final_response:
+                for msg in reversed(state_messages):
+                    if (hasattr(msg, "content") and msg.content and
+                        hasattr(msg, "name") and msg.name and
+                        msg.name.endswith("_agent")):
+                        final_response = msg.content
+                        break
+            
+            update_dict = {"next": goto}
+            if final_response:
+                update_dict["response"] = final_response
         else:
             response = llm.with_structured_output(Router).invoke(messages)
             goto = response.next
             
             if goto not in options:
-                goto = "FINISH"
-        
-        update_dict = {"next": goto}
-        
-        if goto == "FINISH":
-            final_response = state.get("response")
+                goto = members[0] if members else "FINISH"
             
-            if not final_response:
-                messages = state.get("messages", [])
-                for msg in reversed(messages):
-                    if hasattr(msg, "content") and msg.content:
-                        final_response = msg.content
-                        break
+            if goto == "FINISH":
+                goto = members[0] if members else "FINISH"
             
-            if final_response:
-                update_dict["response"] = final_response
+            update_dict = {"next": goto}
         
         return update_dict
 

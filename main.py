@@ -132,11 +132,13 @@ async def chat(request: ChatRequest):
         agent_used = None
         
         if not response_text and result.get("messages"):
-            last_msg = result["messages"][-1]
-            if hasattr(last_msg, "content"):
-                response_text = last_msg.content
-            if hasattr(last_msg, "name") and last_msg.name:
-                agent_used = last_msg.name
+            # Only use agent messages, not user messages
+            for msg in reversed(result["messages"]):
+                if hasattr(msg, "name") and msg.name and msg.name.endswith("_agent"):
+                    if hasattr(msg, "content"):
+                        response_text = msg.content
+                        agent_used = msg.name
+                        break
         
         if not response_text:
             response_text = "I apologize, but I couldn't generate a response. Please try rephrasing your question."
