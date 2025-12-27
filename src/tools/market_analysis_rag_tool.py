@@ -1,7 +1,15 @@
-"""Market Analysis RAG tool for market analysis instructions."""
+"""Market Analysis RAG tool for market analysis instructions.
+
+This module provides LangChain tools for market analysis:
+- market_analysis_rag_tool: Searches market analysis instructions using RAG
+- web_search_tool: Performs web searches for real-time market information
+
+These tools are used by the Market Insights Agent to provide comprehensive
+market analysis and investment advice.
+"""
 
 from langchain_core.tools import tool
-from rag.retriever import Retriever
+from ..rag.retriever import Retriever
 from langchain_community.tools import TavilySearchResults
 
 @tool

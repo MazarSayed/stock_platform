@@ -1,14 +1,15 @@
-"""Pydantic models for the stock trading platform."""
+"""Pydantic models for the stock trading platform.
+
+This module defines all Pydantic data models used throughout the application:
+- API request/response models (ChatMessage, ChatRequest, ChatResponse)
+- Evaluation models (EvaluationMetrics, AggregateMetrics, EvaluationScores)
+- RAG extraction models (QAPair, FAQExtraction)
+- Guardrail models (GuardrailResult)
+"""
 
 from typing import List, Optional, Dict
 from pydantic import BaseModel, Field
 
-class GuardrailResult(BaseModel):
-    """Result of a guardrail check."""
-    passed: bool
-    reason: Optional[str] = None
-    sanitized_output: Optional[str] = None
-    blocked: bool = False  # Whether to completely block the output
 
 # Evaluation Models
 class EvaluationMetrics(BaseModel):
@@ -83,4 +84,13 @@ class QAPair(BaseModel):
 class FAQExtraction(BaseModel):
     """FAQ extraction structure."""
     qa_pairs: List[QAPair]
+
+
+# Guardrail Models
+class GuardrailResult(BaseModel):
+    """Result of a guardrail validation check."""
+    passed: bool
+    reason: Optional[str] = None
+    sanitized_output: Optional[str] = None
+    blocked: bool = False
 

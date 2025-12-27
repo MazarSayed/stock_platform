@@ -1,4 +1,9 @@
-"""Retrieval mechanism module."""
+"""Retrieval mechanism module.
+
+This module provides the Retriever class that handles document retrieval
+using the vector store. It supports filtering by document type and formats
+retrieved documents as context strings for use in RAG applications.
+"""
 
 from typing import List, Dict, Any, Optional
 from .vectorstore import VectorStore

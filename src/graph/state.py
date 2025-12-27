@@ -1,3 +1,9 @@
+"""State definition for LangGraph application.
+
+This module defines the State class that represents the shared state structure
+used throughout the LangGraph workflow. The state includes messages, routing
+information, and response data.
+"""
 
 from langgraph.graph import MessagesState
 from pydantic import Field

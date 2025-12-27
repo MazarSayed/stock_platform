@@ -1,7 +1,12 @@
-"""FAQ RAG tool for FAQ and user guide documents."""
+"""FAQ RAG tool for FAQ and user guide documents.
+
+This module provides a LangChain tool that uses RAG (Retrieval-Augmented Generation)
+to answer questions about the platform by searching FAQ and user guide documents.
+The tool is used by the FAQ Agent to provide accurate, context-aware responses.
+"""
 
 from langchain_core.tools import tool
-from rag.retriever import Retriever
+from ..rag.retriever import Retriever
 
 
 @tool

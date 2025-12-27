@@ -1,4 +1,9 @@
-"""Build FAISS vector store from all documents."""
+"""Build FAISS vector store from all documents.
+
+This script processes chunked documents from YAML files and builds a FAISS
+vector store for efficient similarity search. It supports multiple document
+types (FAQ, user guide, market analysis) and saves the index for use in RAG.
+"""
 
 from pathlib import Path
 import sys

@@ -1,4 +1,9 @@
-"""Extract and chunk PDFs using recursive chunking or vision-based extraction."""
+"""Extract and chunk PDFs using recursive chunking or vision-based extraction.
+
+This script processes PDF documents and extracts text content, then chunks
+them for vector storage. For FAQ documents, it uses GPT-4o vision for better
+Q&A pair extraction. Outputs are saved as YAML files for vector store building.
+"""
 
 from pathlib import Path
 import sys

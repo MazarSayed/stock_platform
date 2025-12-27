@@ -1,4 +1,9 @@
-"""Streamlit application for testing LangGraph-based stock trading platform agent via FastAPI."""
+"""Streamlit application for testing LangGraph-based stock trading platform agent via FastAPI.
+
+This module provides a Streamlit web interface for interacting with the stock
+trading platform. It connects to the FastAPI backend, manages chat sessions,
+displays conversation history, and provides settings for API configuration.
+"""
 
 import streamlit as st
 import requests
@@ -57,7 +62,7 @@ with st.sidebar:
                 st.success("✅ API connected successfully!")
             else:
                 st.error(f"❌ API returned status {response.status_code}")
-        except Exception as e:
+        except requests.exceptions.RequestException as e:
             st.error(f"❌ Cannot connect to API: {str(e)}")
 
 # Display chat history

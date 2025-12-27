@@ -1,4 +1,9 @@
-"""Script to run auto-evaluation on ground truth test cases."""
+"""Script to run auto-evaluation on ground truth test cases.
+
+This script executes the automated evaluation pipeline, running all test cases
+from the ground truth file against the LangGraph workflow and generating
+comprehensive evaluation reports with metrics and scores.
+"""
 
 import asyncio
 import sys
