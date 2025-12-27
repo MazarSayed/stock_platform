@@ -11,7 +11,6 @@ from typing import List, Optional, Dict
 from pydantic import BaseModel, Field
 
 
-# Evaluation Models
 class EvaluationMetrics(BaseModel):
     """Basic metrics for a single evaluation run."""
     test_id: str
@@ -52,7 +51,6 @@ class EvaluationScores(BaseModel):
     accuracy: float = Field(description="Accuracy score (0-1)")
 
 
-# API Models
 class ChatMessage(BaseModel):
     """Chat message model."""
     role: str
@@ -74,7 +72,6 @@ class ChatResponse(BaseModel):
     messages: List[ChatMessage] = []
 
 
-# RAG Extractor Models
 class QAPair(BaseModel):
     """Q&A pair structure."""
     question: str
@@ -86,7 +83,6 @@ class FAQExtraction(BaseModel):
     qa_pairs: List[QAPair]
 
 
-# Guardrail Models
 class GuardrailResult(BaseModel):
     """Result of a guardrail validation check."""
     passed: bool
